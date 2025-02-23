@@ -4,7 +4,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
--- GUI Injection (Bypass PlayerGui ke CoreGui jika diblokir)
 local gui = Instance.new("ScreenGui")
 pcall(function()
     gui.Parent = player:FindFirstChild("PlayerGui") or game:GetService("CoreGui")
@@ -17,7 +16,6 @@ frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 
 print("✅ GUI Injected Successfully!")
 
--- Function buat tombol di GUI
 local function createButton(text, pos, color, callback)
     local btn = Instance.new("TextButton", frame)
     btn.Size = UDim2.new(1, 0, 0, 40)
@@ -27,7 +25,6 @@ local function createButton(text, pos, color, callback)
     btn.MouseButton1Click:Connect(callback)
 end
 
--- Auto Qi Gathering
 createButton("Auto Qi: OFF", 0, Color3.fromRGB(255, 0, 0), function(btn)
     local gatherQi = ReplicatedStorage:FindFirstChild("GatherQi")
     if not gatherQi then warn("❌ GatherQi RemoteFunction not found!") return end
@@ -50,7 +47,6 @@ createButton("Auto Qi: OFF", 0, Color3.fromRGB(255, 0, 0), function(btn)
     end
 end)
 
--- Auto Harvesting
 createButton("Auto Harvest", 40, Color3.fromRGB(0, 150, 255), function()
     local workspace = game:GetService("Workspace")
 
@@ -65,7 +61,6 @@ createButton("Auto Harvest", 40, Color3.fromRGB(0, 150, 255), function()
     end
 end)
 
--- Auto Alchemy
 createButton("Auto Alchemy", 80, Color3.fromRGB(255, 165, 0), function()
     local alchemy = ReplicatedStorage:FindFirstChild("Alchemy")
     if not alchemy then warn("❌ Alchemy RemoteFunction not found!") return end
