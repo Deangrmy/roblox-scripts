@@ -1,3 +1,4 @@
+print("AutoFarm script loaded successfully!")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
